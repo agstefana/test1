@@ -22,9 +22,16 @@ resource "azurerm_resource_group" "adrons_resource_group_workspace" {
   }
 }
 
-resource "azurerm_virtual_network" "example" {
+resource "azurerm_virtual_network" "exampleVNET" {
   name                = "example-vnet"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.adrons_resource_group_workspace.location
   resource_group_name = azurerm_resource_group.adrons_resource_group_workspace.name
+}
+
+resource "azurerm_firewall" "exampleFW" {
+  name                = "example-firewall"
+  resource_group_name = azurerm_resource_group.adrons_resource_group_workspace.name
+  location            = azurerm_resource_group.adrons_resource_group_workspace.location
+  sku_name            = "azfw_hub_1.0.0"
 }
