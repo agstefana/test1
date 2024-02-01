@@ -9,6 +9,8 @@ terraform {
 
 provider "azurerm" { 
     version = "=2.56.0" 
+       features {}
+
     }
 
 resource "azurerm_resource_group" "adrons_resource_group_workspace" {
