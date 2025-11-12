@@ -1,7 +1,23 @@
+
+
 # main.tf (vulnerable snip) -- fictitious file for exercise
-provider "azurerm" {
-features {}
+
+@@ -1,37 +1,99 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "2.56.0"
+    }
+  }
 }
+
+provider "azurerm" { 
+    version = "=2.56.0" 
+       features {}
+
+    }
+
 resource "azurerm_resource_group" "rg" {
 name = "rg-demo-securedata"
 location = "Central US"
